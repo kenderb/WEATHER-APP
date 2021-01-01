@@ -1,25 +1,26 @@
-import API_KEY from './api-personal-key';
+import WEATHER_APP_API_KEY from './api-personal-key';
 class ApiData {
   
-  constructor(city) {
-    this.apiKey = API_KEY;
+  constructor(city= 'Cartagena') {
+    this.apiKey = WEATHER_APP_API_KEY;
     this.city =  city;
-    this.headers = {
-      "x-rapidapi-key": `${this.apiKey}`,
-      "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
-    }
   }
   
   async getApiData() {
     try {
-        const res = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${this.city}`, this.headers);
+        const res = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${this.city}`, {
+          "method": "GET",
+          "headers": {
+            "x-rapidapi-key": this.apiKey,
+            "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+          }});
         const data = await res.json();
-        console.log(data.ticker.price);
+        console.log(data);
     } catch (e) {
         console.log("SOMETHING WENT WRONG!!!", e);
     }
   }
-  shoApiKey() {
+  showApiKey() {
     console.log(this.apiKey);
   }
   
