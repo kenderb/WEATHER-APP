@@ -1,1 +1,3 @@
-console.log('hello there');
+import ApiData from './api-data';
+const wheather = new ApiData('cartagena');
+wheather.shoApiKey;
