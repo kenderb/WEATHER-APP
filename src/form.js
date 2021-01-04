@@ -1,3 +1,4 @@
+import ApiData from './api-data';
 class From {
   constructor() {
     this.container = document.getElementById('container');
@@ -42,10 +43,13 @@ class From {
       e.preventDefault();
       const cityInput = form.elements.city;
       if (this.inputValidation(cityInput.value)) {
-        console.log(cityInput.value);
+          const wheather = new ApiData(cityInput.value);
+          wheather.getApiData().then((value)=> {
+            console.log(value);
+          });
         cityInput.value = '';
       }
-    })
+    });
   }
 }
 

@@ -30,13 +30,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/components/form/form.js":
-/*!*************************************!*\
-  !*** ./src/components/form/form.js ***!
-  \*************************************/
+/***/ "./src/form.js":
+/*!*********************!*\
+  !*** ./src/form.js ***!
+  \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\nclass From {\r\n  constructor() {\r\n    this.container = document.getElementById('container');\r\n  }\r\n  createForm() {\r\n    const form = document.createElement('form');\r\n    const input = document.createElement('input');\r\n    const button = document.createElement('button');\r\n    form.action = '/home';\r\n    form.id = 'from-city';\r\n    input.type = 'text';\r\n    input.name = 'city';\r\n    input.placeholder = 'Type a city';\r\n    button.innerHTML = 'Submit';\r\n    button.type = 'submit';\r\n    form.append(input);\r\n    form.append(button);\r\n    \r\n    this.container.append(form);\r\n    return form;\r\n  }\r\n  \r\n  inputValidation(value) {\r\n    if (!value) {\r\n      const p = document.createElement('p');\r\n      if(document.getElementById('blank-error')) {\r\n        p.innerHTML =''\r\n        p.innerHTML = \"City can't be blank\" \r\n      } else {\r\n        p.id = 'blank-error';\r\n        p.innerHTML = \"City can't be blank\"\r\n        this.container.append(p);\r\n      }\r\n      return false\r\n    }\r\n    return true;\r\n  }\r\n  \r\n  sumitInfo() {\r\n    const form = document.getElementById('from-city');\r\n    form.addEventListener('submit', (e) => {\r\n      e.preventDefault();\r\n      const cityInput = form.elements.city;\r\n      if (this.inputValidation(cityInput.value)) {\r\n        console.log(cityInput.value);\r\n        cityInput.value = '';\r\n      }\r\n    })\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (From);\n\n//# sourceURL=webpack://WEATHER-APP/./src/components/form/form.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _api_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api-data */ \"./src/api-data.js\");\n\r\nclass From {\r\n  constructor() {\r\n    this.container = document.getElementById('container');\r\n  }\r\n  createForm() {\r\n    const form = document.createElement('form');\r\n    const input = document.createElement('input');\r\n    const button = document.createElement('button');\r\n    form.action = '/home';\r\n    form.id = 'from-city';\r\n    input.type = 'text';\r\n    input.name = 'city';\r\n    input.placeholder = 'Type a city';\r\n    button.innerHTML = 'Submit';\r\n    button.type = 'submit';\r\n    form.append(input);\r\n    form.append(button);\r\n    \r\n    this.container.append(form);\r\n    return form;\r\n  }\r\n  \r\n  inputValidation(value) {\r\n    if (!value) {\r\n      const p = document.createElement('p');\r\n      if(document.getElementById('blank-error')) {\r\n        p.innerHTML =''\r\n        p.innerHTML = \"City can't be blank\" \r\n      } else {\r\n        p.id = 'blank-error';\r\n        p.innerHTML = \"City can't be blank\"\r\n        this.container.append(p);\r\n      }\r\n      return false\r\n    }\r\n    return true;\r\n  }\r\n  \r\n  sumitInfo() {\r\n    const form = document.getElementById('from-city');\r\n    form.addEventListener('submit', (e) => {\r\n      e.preventDefault();\r\n      const cityInput = form.elements.city;\r\n      if (this.inputValidation(cityInput.value)) {\r\n          const wheather = new _api_data__WEBPACK_IMPORTED_MODULE_0__.default(cityInput.value);\r\n          wheather.getApiData().then((value)=> {\r\n            console.log(value);\r\n          });\r\n        cityInput.value = '';\r\n      }\r\n    });\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (From);\n\n//# sourceURL=webpack://WEATHER-APP/./src/form.js?");
 
 /***/ }),
 
@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api-data */ \"./src/api-data.js\");\n/* harmony import */ var _components_form_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/form/form */ \"./src/components/form/form.js\");\n\r\n\r\n// const wheather = new ApiData();\r\nconst form = new _components_form_form__WEBPACK_IMPORTED_MODULE_1__.default();\r\n// wheather.showApiKey();\r\n// wheather.getApiData();\r\nform.createForm();\r\nform.sumitInfo();\n\n//# sourceURL=webpack://WEATHER-APP/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form */ \"./src/form.js\");\n\r\n\r\nconst form = new _form__WEBPACK_IMPORTED_MODULE_0__.default();\r\n\r\nform.createForm();\r\nform.sumitInfo();\n\n//# sourceURL=webpack://WEATHER-APP/./src/index.js?");
 
 /***/ })
 
