@@ -19,8 +19,18 @@ class From {
     this.container.append(form);
     return form;
   }
-  formValidation(value) {
+  
+  inputValidation(value) {
     if (!value) {
+      const p = document.createElement('p');
+      if(document.getElementById('blank-error')) {
+        p.innerHTML =''
+        p.innerHTML = "City can't be blank" 
+      } else {
+        p.id = 'blank-error';
+        p.innerHTML = "City can't be blank"
+        this.container.append(p);
+      }
       return false
     }
     return true;
@@ -31,8 +41,10 @@ class From {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const cityInput = form.elements.city;
-      formValidation(cityInput.value)
-      cityInput.value = '';
+      if (this.inputValidation(cityInput.value)) {
+        console.log(cityInput.value);
+        cityInput.value = '';
+      }
     })
   }
 }
