@@ -6,7 +6,7 @@ class ApiData {
   }
   
   convertKtoC(temp) {
-    return temp - 273.15
+    return Math.floor(temp - 273.15);
   }
   
   convertDatatoObj(data) {
@@ -34,9 +34,6 @@ class ApiData {
     } catch (e) {
       return e;
     }
-  }
-  showApiKey() {
-    return this.apiKey;
   }
   
 }
