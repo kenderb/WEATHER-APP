@@ -1,6 +1,8 @@
 import ApiData from './api-data';
-import createForm from './components/form/form';
-const wheather = new ApiData();
-wheather.showApiKey();
-wheather.getApiData();
-createForm();
+import From from './components/form/form';
+// const wheather = new ApiData();
+const form = new From();
+// wheather.showApiKey();
+// wheather.getApiData();
+form.createForm();
+form.sumitInfo();
