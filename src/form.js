@@ -3,6 +3,7 @@ import Render from './render-weather';
 class Form {
   constructor() {
     this.container = document.getElementById('container');
+    this.defaultCity = 'Cartagena';
   }
   renderCall(value) {
     const render = new Render(value);
@@ -17,6 +18,7 @@ class Form {
   }
 
   createForm() {
+    this.weatherCall(this.defaultCity);
     const form = document.createElement('form');
     const input = document.createElement('input');
     const button = document.createElement('button');
