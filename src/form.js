@@ -4,6 +4,18 @@ class Form {
   constructor() {
     this.container = document.getElementById('container');
   }
+  renderCall(value) {
+    const render = new Render(value);
+    render.renderTemp();
+    render.renderHumidity();
+    render.renderclimate();
+  }
+
+  weatherCall(cityInput) {
+    const wheather = new ApiData(cityInput.value);
+    wheather.getApiData().then((value)=> {this.renderCall(value)});
+  }
+
   createForm() {
     const form = document.createElement('form');
     const input = document.createElement('input');
@@ -38,12 +50,6 @@ class Form {
     return true;
   }
 
-  renderCall(value) {
-    const render = new Render(value);
-    render.renderTemp();
-    render.renderHumidity();
-    render.renderclimate();
-  }
 
   sumitInfo() {
     const form = document.getElementById('from-city');
@@ -51,8 +57,7 @@ class Form {
       e.preventDefault();
       const cityInput = form.elements.city;
       if (this.inputValidation(cityInput.value)) {
-        const wheather = new ApiData(cityInput.value);
-        wheather.getApiData().then((value)=> {this.renderCall(value)});
+        this.weatherCall(cityInput);
         cityInput.value = '';
       }
     });

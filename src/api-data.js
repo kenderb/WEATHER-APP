@@ -1,6 +1,6 @@
 import WEATHER_APP_API_KEY from './api-personal-key';
 class ApiData {
-  constructor(city= 'Cartagena') {
+  constructor(city = 'Cartagena') {
     this.apiKey = WEATHER_APP_API_KEY;
     this.city =  city;
   }
