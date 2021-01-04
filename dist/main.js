@@ -30,13 +30,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/components/form/form.js":
+/*!*************************************!*\
+  !*** ./src/components/form/form.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\nconst createForm = () => {\r\n  const container = document.getElementById('container');\r\n  const form = document.createElement('form');\r\n  form.action = '/';\r\n  form.id = 'from-city';\r\n  container.append(form);\r\n  return container;\r\n}\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createForm);\n\n//# sourceURL=webpack://WEATHER-APP/./src/components/form/form.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api-data */ \"./src/api-data.js\");\n\r\nconst wheather = new _api_data__WEBPACK_IMPORTED_MODULE_0__.default();\r\nwheather.showApiKey();\r\nwheather.getApiData();\r\n\n\n//# sourceURL=webpack://WEATHER-APP/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api-data */ \"./src/api-data.js\");\n/* harmony import */ var _components_form_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/form/form */ \"./src/components/form/form.js\");\n\r\n\r\nconst wheather = new _api_data__WEBPACK_IMPORTED_MODULE_0__.default();\r\nwheather.showApiKey();\r\nwheather.getApiData();\r\n(0,_components_form_form__WEBPACK_IMPORTED_MODULE_1__.default)();\n\n//# sourceURL=webpack://WEATHER-APP/./src/index.js?");
 
 /***/ })
 
