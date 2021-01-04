@@ -8,7 +8,12 @@ class ApiData {
   convertKtoC(temp) {
     return temp - 273.15
   }
-  
+  convertDatatoObj(data) {
+    console.log(data);
+    return {
+      
+    }
+  }
   async getApiData() {
     try {
       const res = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${this.city}`, {
@@ -20,7 +25,7 @@ class ApiData {
         "mode": "cors"
       });
       const data = await res.json();
-      console.log(this.convertKtoC(data.main.temp));
+      this.convertDatatoObj(data);
     } catch (e) {
       console.log("SOMETHING WENT WRONG!!!", e);
     }
