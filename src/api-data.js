@@ -16,7 +16,9 @@ class ApiData {
         "headers": {
           "x-rapidapi-key": this.apiKey,
           "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
-        }});
+        },
+        "mode": "cors"
+      });
       const data = await res.json();
       console.log(this.convertKtoC(data.main.temp));
     } catch (e) {
