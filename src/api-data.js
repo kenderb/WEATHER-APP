@@ -32,11 +32,11 @@ class ApiData {
       const data = await res.json();
       return this.convertDatatoObj(data);
     } catch (e) {
-      console.log("SOMETHING WENT WRONG!!!", e);
+      return e;
     }
   }
   showApiKey() {
-    console.log(this.apiKey);
+    return this.apiKey;
   }
   
 }
