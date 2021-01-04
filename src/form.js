@@ -1,5 +1,5 @@
 import ApiData from './api-data';
-class From {
+class Form {
   constructor() {
     this.container = document.getElementById('container');
   }
@@ -43,14 +43,14 @@ class From {
       e.preventDefault();
       const cityInput = form.elements.city;
       if (this.inputValidation(cityInput.value)) {
-          const wheather = new ApiData(cityInput.value);
-          wheather.getApiData().then((value)=> {
-            console.log(value);
-          });
+        const wheather = new ApiData(cityInput.value);
+        wheather.getApiData().then((value)=> {
+          console.log(value);
+        });
         cityInput.value = '';
       }
     });
   }
 }
 
-export default From;
+export default Form;
