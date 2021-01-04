@@ -1,4 +1,5 @@
 import ApiData from './api-data';
+import Render from './render-weather';
 class Form {
   constructor() {
     this.container = document.getElementById('container');
@@ -36,7 +37,14 @@ class Form {
     }
     return true;
   }
-  
+
+  renderCall(value) {
+    const render = new Render(value);
+    render.renderTemp();
+    render.renderHumidity();
+    render.renderclimate();
+  }
+
   sumitInfo() {
     const form = document.getElementById('from-city');
     form.addEventListener('submit', (e) => {
@@ -44,9 +52,7 @@ class Form {
       const cityInput = form.elements.city;
       if (this.inputValidation(cityInput.value)) {
         const wheather = new ApiData(cityInput.value);
-        wheather.getApiData().then((value)=> {
-          console.log(value);
-        });
+        wheather.getApiData().then((value)=> {this.renderCall(value)});
         cityInput.value = '';
       }
     });

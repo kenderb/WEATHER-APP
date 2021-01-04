@@ -11,7 +11,7 @@ class ApiData {
   
   convertDatatoObj(data) {
     return {
-      tempetature: this.convertKtoC(data.main.temp),
+      temperature: this.convertKtoC(data.main.temp),
       feels_like: this.convertKtoC(data.main.feels_like),
       humidity: data.main.humidity,
       climate: data.weather[0].description,
