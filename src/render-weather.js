@@ -57,12 +57,12 @@ class Render {
 
   renderType() {
     const container = document.getElementById('type');
-    const h2 = document.createElement('h2');
-    h2.id = 'degrees';
+    const button = document.createElement('button');
+    button.id = 'degrees';
 
-    h2.innerHTML = this.data.type;
-    h2.addEventListener('click', Render.checkDegrees);
-    container.append(h2);
+    button.innerHTML = this.data.type;
+    button.addEventListener('click', Render.checkDegrees);
+    container.append(button);
   }
 
   renderHumidity() {
