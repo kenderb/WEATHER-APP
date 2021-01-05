@@ -45,6 +45,7 @@ class Form {
   inputValidation(value) {
     if (!value) {
       this.errors.innerHTML = '';
+      this.errors.className = 'd-none';
       const p = document.createElement('p');
       if (document.getElementById('blank-error')) {
         p.innerHTML = "City can't be blank";
@@ -67,6 +68,7 @@ class Form {
       const cityInput = form.elements.city;
       if (cityInput.value) {
         this.errors.innerHTML = '';
+        this.errors.className = 'd-none';
         const degrees = document.getElementById('degrees');
         if (degrees) degrees.remove();
       }

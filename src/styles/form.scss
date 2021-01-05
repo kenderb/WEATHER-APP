@@ -1,5 +1,7 @@
+    
+@import 'colors';
 $general-padding: 0.5rem;
-$border: 0.06rem solid #ff620d44;
+$border: 0.06rem solid $primary-color;
 $radius: 0.3rem;
 
 .form-container {
@@ -16,7 +18,7 @@ $radius: 0.3rem;
     }
 
     button {
-      background-color:#007dfe;
+      background-color: $primary-color;
       border-radius: 0 $radius $radius 0;
       color: white;
       font-weight: bold;
@@ -31,9 +33,10 @@ $radius: 0.3rem;
 }
 
 .form-error {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  background-color: rgba(245, 131, 131, 0.5);
+  text-align: center;
+  margin: auto;
+  max-width: 10rem;
+  padding: 0.5rem;
+  background-color: $secondary-color;
   color: white;
 }
