@@ -1,25 +1,27 @@
 import ApiData from './api-data';
 import Render from './render-weather';
+
 class Form {
   constructor() {
     this.container = document.getElementById('container');
     this.defaultCity = 'Cartagena';
   }
-  renderCall(value) {
+
+  static renderCall(value) {
     const render = new Render(value);
-    render.renderType()
+    render.renderType();
     render.renderTemp();
     render.renderHumidity();
     render.renderclimate();
   }
 
-  weatherCall(cityInput) {
+  static weatherCall(cityInput) {
     const wheather = new ApiData(cityInput.value);
-    wheather.getApiData().then((value)=> {this.renderCall(value)});
+    wheather.getApiData().then((value) => { Form.renderCall(value); });
   }
 
   createForm() {
-    this.weatherCall(this.defaultCity);
+    Form.weatherCall(this.defaultCity);
     const form = document.createElement('form');
     const input = document.createElement('input');
     const button = document.createElement('button');
@@ -32,23 +34,23 @@ class Form {
     button.type = 'submit';
     form.append(input);
     form.append(button);
-    
+
     this.container.append(form);
     return form;
   }
-  
+
   inputValidation(value) {
     if (!value) {
       const p = document.createElement('p');
-      if(document.getElementById('blank-error')) {
-        p.innerHTML =''
-        p.innerHTML = "City can't be blank" 
+      if (document.getElementById('blank-error')) {
+        p.innerHTML = '';
+        p.innerHTML = "City can't be blank";
       } else {
         p.id = 'blank-error';
-        p.innerHTML = "City can't be blank"
+        p.innerHTML = "City can't be blank";
         this.container.append(p);
       }
-      return false
+      return false;
     }
     return true;
   }
@@ -58,10 +60,10 @@ class Form {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const degrees = document.getElementById('degrees');
-      if(degrees) degrees.remove();
+      if (degrees) degrees.remove();
       const cityInput = form.elements.city;
       if (this.inputValidation(cityInput.value)) {
-        this.weatherCall(cityInput);
+        Form.weatherCall(cityInput);
         cityInput.value = '';
       }
     });

@@ -10,54 +10,55 @@ class Render {
     const p = document.createElement('p');
     const p2 = document.createElement('p');
     h1.innerHTML = this.data.city;
-    p.innerHTML = 'Temp: ' + this.data.temperature;
-    p.id = 'main-temp'
-    p2.innerHTML = 'Fells like: ' + this.data.feels_like;
-    p2.id = 'feels-temp'
+    p.innerHTML = `Temp: ${this.data.temperature}`;
+    p.id = 'main-temp';
+    p2.innerHTML = `Fells like: ${this.data.feels_like}`;
+    p2.id = 'feels-temp';
     this.content.append(h1);
     this.content.append(p);
     this.content.append(p2);
   }
-  fFormula(temp) {
-    return Math.round((Number(temp) * (9/5)) + 32) + ' °';
+
+  static fFormula(temp) {
+    return `${Math.round((Number(temp) * (9 / 5)) + 32)} °`;
   }
-  
-  cFormula(temp) {
-    return Math.round((Number(temp) - 32) * 5/9) + ' °';
+
+  static cFormula(temp) {
+    return `${Math.round((Number(temp) - 32) * (5 / 9))} °`;
   }
-  
-  callTemps(formula) {
+
+  static callTemps(formula) {
     const temp1 = document.getElementById('main-temp');
     const feels = document.getElementById('feels-temp');
-    const feelsTem = feels.innerHTML.split(' ')[2]
-    const mainTem = temp1.innerHTML.split(' ')[1]
-    temp1.innerHTML ='Temp: ' + formula(mainTem);
-    feels.innerHTML ='Fells like: ' + formula(feelsTem);
+    const feelsTem = feels.innerHTML.split(' ')[2];
+    const mainTem = temp1.innerHTML.split(' ')[1];
+    temp1.innerHTML = `Temp: ${formula(mainTem)}`;
+    feels.innerHTML = `Fells like: ${formula(feelsTem)}`;
     return temp1;
   }
-  
-  convertToF() {
-    return this.callTemps(this.fFormula)
+
+  static convertToF() {
+    return Render.callTemps(Render.fFormula);
   }
-  
-  convertToC() {
-    return this.callTemps(this.cFormula)
+
+  static convertToC() {
+    return Render.callTemps(Render.cFormula);
   }
-  
-  
+
+
   renderType() {
     const container = document.getElementById('type');
     const h2 = document.createElement('h2');
     h2.id = 'degrees';
-    
+
     h2.innerHTML = this.data.type;
     h2.addEventListener('click', () => {
-      if(h2.innerHTML==='C') {
-        this.convertToF();
-        h2.innerHTML = 'F'
+      if (h2.innerHTML === 'C') {
+        Render.convertToF();
+        h2.innerHTML = 'F';
       } else {
-        this.convertToC()
-        h2.innerHTML = 'C'
+        Render.convertToC();
+        h2.innerHTML = 'C';
       }
     });
     container.append(h2);
@@ -65,18 +66,17 @@ class Render {
 
   renderHumidity() {
     const p = document.createElement('p');
-    p.innerHTML = 'Humidity: ' + this.data.humidity;
+    p.innerHTML = `Humidity: ${this.data.humidity}`;
     this.content.append(p);
   }
 
   renderclimate() {
     const p = document.createElement('p');
-    p.innerHTML = 'Climate: ' + this.data.climate;
+    p.innerHTML = `Climate: ${this.data.climate}`;
     const image = document.createElement('img');
     image.src = `http://openweathermap.org/img/wn/${this.data.icon}@2x.png`;
     this.content.append(p);
     this.content.append(image);
   }
-
 }
 export default Render;
