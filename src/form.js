@@ -61,10 +61,12 @@ class Form {
     const form = document.getElementById('from-city');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.errors.innerHTML = '';
-      const degrees = document.getElementById('degrees');
-      if (degrees) degrees.remove();
       const cityInput = form.elements.city;
+      if (cityInput.value) {
+        this.errors.innerHTML = '';
+        const degrees = document.getElementById('degrees');
+        if (degrees) degrees.remove();
+      }
       if (this.inputValidation(cityInput.value)) {
         Form.weatherCall(cityInput);
         cityInput.value = '';
