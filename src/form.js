@@ -19,11 +19,20 @@ class Form {
 
   static weatherCall(cityInput) {
     const wheather = new ApiData(cityInput.value);
-    wheather.getApiData().then((value) => { Form.renderCall(value); });
+    Form.renderCall({
+      city: "Cartagena",
+      climate: "few clouds",
+      feels_like: "30 °",
+      humidity: 70,
+      icon: "02d",
+      temperature: "29 °",
+      type: "C",
+    });
+    // wheather.getApiData().then((value) => { Form.renderCall(value); });
   }
 
   createForm() {
-    // Form.weatherCall(this.defaultCity);
+    Form.weatherCall(this.defaultCity);
     const form = document.createElement('form');
     const input = document.createElement('input');
     const button = document.createElement('button');

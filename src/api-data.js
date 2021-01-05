@@ -38,12 +38,7 @@ class ApiData {
 
   async getApiData() {
     try {
-      const res = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${this.city}`, {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-key': this.apiKey,
-          'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-        },
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}`, {
         mode: 'cors',
       });
       const data = await res.json();
