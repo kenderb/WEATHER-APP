@@ -11,22 +11,22 @@ class Form {
 
   static renderCall(value) {
     const render = new Render(value);
-    render.renderType();
+    render.renderDegrees();
     render.renderTemp();
     render.renderHumidity();
     render.renderclimate();
   }
 
   static weatherCall(cityInput) {
-    const wheather = new ApiData(cityInput.value);
+    // const wheather = new ApiData(cityInput.value);
     Form.renderCall({
-      city: "Cartagena",
-      climate: "few clouds",
-      feels_like: "30 °",
+      city: 'Cartagena',
+      climate: 'few clouds',
+      feels_like: '30 °',
       humidity: 70,
-      icon: "02d",
-      temperature: "29 °",
-      type: "C",
+      icon: '02d',
+      temperature: '29 °',
+      type: 'C',
     });
     // wheather.getApiData().then((value) => { Form.renderCall(value); });
   }

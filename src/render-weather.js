@@ -1,3 +1,5 @@
+import './styles/weather.scss';
+
 class Render {
   constructor(data) {
     this.data = data;
@@ -7,12 +9,15 @@ class Render {
   renderTemp() {
     this.content.innerHTML = '';
     const h1 = document.createElement('h1');
+    h1.className = 'city-title';
     const p = document.createElement('p');
     const p2 = document.createElement('p');
     h1.innerHTML = this.data.city;
     p.innerHTML = `Temp: ${this.data.temperature}`;
     p.id = 'main-temp';
+    p.className = 'temp-container';
     p2.innerHTML = `Fells like: ${this.data.feels_like}`;
+    p2.className = 'temp-container';
     p2.id = 'feels-temp';
     this.content.append(h1);
     this.content.append(p);
@@ -55,10 +60,11 @@ class Render {
     }
   }
 
-  renderType() {
+  renderDegrees() {
     const container = document.getElementById('type');
     const button = document.createElement('button');
     button.id = 'degrees';
+    button.className = 'degrees';
 
     button.innerHTML = this.data.type;
     button.addEventListener('click', Render.checkDegrees);
@@ -68,12 +74,14 @@ class Render {
   renderHumidity() {
     const p = document.createElement('p');
     p.innerHTML = `Humidity: ${this.data.humidity}`;
+    p.className = 'temp-container';
     this.content.append(p);
   }
 
   renderclimate() {
     const p = document.createElement('p');
     p.innerHTML = `Climate: ${this.data.climate}`;
+    p.className = 'climate-image';
     const image = document.createElement('img');
     image.src = `http://openweathermap.org/img/wn/${this.data.icon}@4x.png`;
     this.content.append(p);
