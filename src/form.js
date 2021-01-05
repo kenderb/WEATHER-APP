@@ -4,6 +4,7 @@ import Render from './render-weather';
 class Form {
   constructor() {
     this.container = document.getElementById('container');
+    this.errors = document.getElementById('errors');
     this.defaultCity = 'Cartagena';
   }
 
@@ -41,14 +42,15 @@ class Form {
 
   inputValidation(value) {
     if (!value) {
+      this.errors.innerHTML = '';
       const p = document.createElement('p');
       if (document.getElementById('blank-error')) {
-        p.innerHTML = '';
         p.innerHTML = "City can't be blank";
+        this.errors.append(p);
       } else {
         p.id = 'blank-error';
         p.innerHTML = "City can't be blank";
-        this.container.append(p);
+        this.errors.append(p);
       }
       return false;
     }
@@ -59,6 +61,7 @@ class Form {
     const form = document.getElementById('from-city');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      this.errors.innerHTML = '';
       const degrees = document.getElementById('degrees');
       if (degrees) degrees.remove();
       const cityInput = form.elements.city;
