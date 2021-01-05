@@ -5,22 +5,18 @@ class Render {
   }
 
   renderTemp() {
-    try {
-      this.content.innerHTML = '';
-      const h1 = document.createElement('h1');
-      const p = document.createElement('p');
-      const p2 = document.createElement('p');
-      h1.innerHTML = this.data.city;
-      p.innerHTML = `Temp: ${this.data.temperature}`;
-      p.id = 'main-temp';
-      p2.innerHTML = `Fells like: ${this.data.feels_like}`;
-      p2.id = 'feels-temp';
-      this.content.append(h1);
-      this.content.append(p);
-      this.content.append(p2);
-    } catch (error) {
-      console.log('One more error', error);
-    }
+    this.content.innerHTML = '';
+    const h1 = document.createElement('h1');
+    const p = document.createElement('p');
+    const p2 = document.createElement('p');
+    h1.innerHTML = this.data.city;
+    p.innerHTML = `Temp: ${this.data.temperature}`;
+    p.id = 'main-temp';
+    p2.innerHTML = `Fells like: ${this.data.feels_like}`;
+    p2.id = 'feels-temp';
+    this.content.append(h1);
+    this.content.append(p);
+    this.content.append(p2);
   }
 
   static fFormula(temp) {
@@ -60,40 +56,28 @@ class Render {
   }
 
   renderType() {
-    try {
-      const container = document.getElementById('type');
-      const h2 = document.createElement('h2');
-      h2.id = 'degrees';
+    const container = document.getElementById('type');
+    const h2 = document.createElement('h2');
+    h2.id = 'degrees';
 
-      h2.innerHTML = this.data.type;
-      h2.addEventListener('click', Render.checkDegrees);
-      container.append(h2);
-    } catch (error) {
-      console.log('There is one more error', error);
-    }
+    h2.innerHTML = this.data.type;
+    h2.addEventListener('click', Render.checkDegrees);
+    container.append(h2);
   }
 
   renderHumidity() {
-    try {
-      const p = document.createElement('p');
-      p.innerHTML = `Humidity: ${this.data.humidity}`;
-      this.content.append(p);
-    } catch (error) {
-      console.log('Error', error);
-    }
+    const p = document.createElement('p');
+    p.innerHTML = `Humidity: ${this.data.humidity}`;
+    this.content.append(p);
   }
 
   renderclimate() {
-    try {
-      const p = document.createElement('p');
-      p.innerHTML = `Climate: ${this.data.climate}`;
-      const image = document.createElement('img');
-      image.src = `http://openweathermap.org/img/wn/${this.data.icon}@2x.png`;
-      this.content.append(p);
-      this.content.append(image);
-    } catch (error) {
-      console.log('error here', error);
-    }
+    const p = document.createElement('p');
+    p.innerHTML = `Climate: ${this.data.climate}`;
+    const image = document.createElement('img');
+    image.src = `http://openweathermap.org/img/wn/${this.data.icon}@2x.png`;
+    this.content.append(p);
+    this.content.append(image);
   }
 }
 export default Render;

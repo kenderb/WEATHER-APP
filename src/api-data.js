@@ -1,4 +1,5 @@
 import WEATHER_APP_API_KEY from './api-personal-key';
+import Image404 from './images/error_404.png';
 
 class ApiData {
   constructor(city = 'Cartagena') {
@@ -25,6 +26,16 @@ class ApiData {
     };
   }
 
+  static showErrors() {
+    const content = document.getElementById('conten');
+    content.innerHTML = '';
+    const type = document.getElementById('type');
+    type.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = Image404;
+    content.append(img);
+  }
+
   async getApiData() {
     try {
       const res = await fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${this.city}`, {
@@ -38,7 +49,7 @@ class ApiData {
       const data = await res.json();
       return this.convertDatatoObj(data);
     } catch (e) {
-      console.log("UYY there is an Error", e);
+      return setTimeout(ApiData.showErrors, 200);
     }
   }
 }
