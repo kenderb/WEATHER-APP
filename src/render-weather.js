@@ -45,6 +45,15 @@ class Render {
     return Render.callTemps(Render.cFormula);
   }
 
+  static checkDegrees() {
+    if (this.innerHTML === 'C') {
+      Render.convertToF();
+      this.innerHTML = 'F';
+    } else {
+      Render.convertToC();
+      this.innerHTML = 'C';
+    }
+  }
 
   renderType() {
     const container = document.getElementById('type');
@@ -52,15 +61,7 @@ class Render {
     h2.id = 'degrees';
 
     h2.innerHTML = this.data.type;
-    h2.addEventListener('click', () => {
-      if (h2.innerHTML === 'C') {
-        Render.convertToF();
-        h2.innerHTML = 'F';
-      } else {
-        Render.convertToC();
-        h2.innerHTML = 'C';
-      }
-    });
+    h2.addEventListener('click', Render.checkDegrees);
     container.append(h2);
   }
 
