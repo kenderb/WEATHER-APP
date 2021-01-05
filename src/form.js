@@ -1,5 +1,6 @@
 import ApiData from './api-data';
 import Render from './render-weather';
+import './styles/form.scss';
 
 class Form {
   constructor() {
@@ -22,10 +23,11 @@ class Form {
   }
 
   createForm() {
-    Form.weatherCall(this.defaultCity);
+    // Form.weatherCall(this.defaultCity);
     const form = document.createElement('form');
     const input = document.createElement('input');
     const button = document.createElement('button');
+    this.container.className = 'form-container';
     form.action = '/home';
     form.id = 'from-city';
     input.type = 'text';
@@ -48,6 +50,7 @@ class Form {
         p.innerHTML = "City can't be blank";
         this.errors.append(p);
       } else {
+        this.errors.className = 'form-error';
         p.id = 'blank-error';
         p.innerHTML = "City can't be blank";
         this.errors.append(p);

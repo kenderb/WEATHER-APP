@@ -1,2 +1,4 @@
+.form-container{margin-top:0.7rem;padding:0.6rem;display:flex;justify-content:center}.form-container form input{border:0.06rem solid rgba(255,98,13,0.266667);border-radius:.3rem 0 0 .3rem;padding:.5rem}.form-container form button{background-color:#007dfe;border-radius:0 .3rem .3rem 0;color:white;font-weight:bold;border:0.06rem solid rgba(255,98,13,0.266667);padding:.5rem}.d-none{display:none}.form-error{display:flex;justify-content:center;padding:1rem;background-color:rgba(245,131,131,0.5);color:white}
+
 *{margin:0;padding:0}:root{box-sizing:border-box}*,::before,::after{box-sizing:inherit}img{width:100%}
 
