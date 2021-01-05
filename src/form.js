@@ -7,6 +7,7 @@ class Form {
   }
   renderCall(value) {
     const render = new Render(value);
+    render.renderType()
     render.renderTemp();
     render.renderHumidity();
     render.renderclimate();
@@ -52,11 +53,12 @@ class Form {
     return true;
   }
 
-
   sumitInfo() {
     const form = document.getElementById('from-city');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      const degrees = document.getElementById('degrees');
+      if(degrees) degrees.remove();
       const cityInput = form.elements.city;
       if (this.inputValidation(cityInput.value)) {
         this.weatherCall(cityInput);

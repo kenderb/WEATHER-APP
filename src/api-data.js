@@ -7,16 +7,17 @@ class ApiData {
   
   convertKtoC(temp) {
     return {
-      temp: Math.floor(temp - 273.15), 
+      temp: Math.floor(temp - 273.15) + ' °', 
       type:'C'
     };
   }
   
   convertDatatoObj(data) {
     return {
+      type: this.convertKtoC(data.main.temp).type,
       city: this.city,
-      temperature: this.convertKtoC(data.main.temp).temp + this.convertKtoC(data.main.temp).type,
-      feels_like: this.convertKtoC(data.main.feels_like).temp + this.convertKtoC(data.main.feels_like).type,
+      temperature: this.convertKtoC(data.main.temp).temp ,
+      feels_like: this.convertKtoC(data.main.feels_like).temp ,
       humidity: data.main.humidity,
       climate: data.weather[0].description,
       icon: data.weather[0].icon,
@@ -35,7 +36,7 @@ class ApiData {
       });
       const data = await res.json();
       return this.convertDatatoObj(data);
-    } catch (e) {
+    } catch(e) {
       return e;
     }
   }
