@@ -6,10 +6,13 @@ class Render {
 
   renderTemp() {
     this.content.innerHTML = '';
+    const h1 = document.createElement('h1');
     const p = document.createElement('p');
     const p2 = document.createElement('p');
+    h1.innerHTML = this.data.city;
     p.innerHTML = 'Temp: ' + this.data.temperature;
     p2.innerHTML = 'Fells like: ' + this.data.feels_like;
+    this.content.append(h1);
     this.content.append(p);
     this.content.append(p2);
   }

@@ -6,11 +6,15 @@ class ApiData {
   }
   
   convertKtoC(temp) {
-    return {temp: Math.floor(temp - 273.15), type:'C'};
+    return {
+      temp: Math.floor(temp - 273.15), 
+      type:'C'
+    };
   }
   
   convertDatatoObj(data) {
     return {
+      city: this.city,
       temperature: this.convertKtoC(data.main.temp).temp + this.convertKtoC(data.main.temp).type,
       feels_like: this.convertKtoC(data.main.feels_like).temp + this.convertKtoC(data.main.feels_like).type,
       humidity: data.main.humidity,
