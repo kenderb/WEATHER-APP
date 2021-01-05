@@ -1,4 +1,5 @@
 import Form from './form';
+import './style/reset.scss';
 
 const form = new Form();
 

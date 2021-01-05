@@ -75,7 +75,7 @@ class Render {
     const p = document.createElement('p');
     p.innerHTML = `Climate: ${this.data.climate}`;
     const image = document.createElement('img');
-    image.src = `http://openweathermap.org/img/wn/${this.data.icon}@2x.png`;
+    image.src = `http://openweathermap.org/img/wn/${this.data.icon}@4x.png`;
     this.content.append(p);
     this.content.append(image);
   }
