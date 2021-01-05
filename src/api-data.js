@@ -38,7 +38,7 @@ class ApiData {
       const data = await res.json();
       return this.convertDatatoObj(data);
     } catch (e) {
-      return e;
+      console.log("UYY there is an Error", e);
     }
   }
 }
