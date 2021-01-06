@@ -63,5 +63,3 @@ typings/
 # TernJS port file
 .tern-port
 
-# my API keys
-src/api-personal-key.js
