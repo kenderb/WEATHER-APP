@@ -81,8 +81,14 @@ class Render {
   renderclimate() {
     const p = document.createElement('p');
     const body = document.getElementsByTagName('body')[0];
-    body.className = 'bg-day';
-    console.log(body);
+    if (this.data.icon) {
+      const iconLetter = (this.data.icon.split(''))[2];
+      if (iconLetter === 'n') {
+        body.className = 'bg-nigth';
+      } else {
+        body.className = 'bg-day';
+      }
+    }
     p.innerHTML = `Climate: ${this.data.climate}`;
     p.className = 'temp-container';
     const image = document.createElement('img');

@@ -1,11 +1,11 @@
 
 @import 'colors';
 $genral-size: 2rem;
-$opaque-orange: transparentize($secondary-color, 0.5);
+$opaque-black: #000000a9;
 
 .degrees {
-  background-color: $opcional-color;
-  color: $primary-color;
+  background-color: $opaque-black;
+  color: white;
   font-size: $genral-size;
   font-weight: bold;
   border-radius: $genral-size;
@@ -26,12 +26,16 @@ $opaque-orange: transparentize($secondary-color, 0.5);
   flex-direction: column;
   align-items: center;
   border-radius: 2rem;
-  background-color: #ffffffa6;
+  background-color: #ffffff18;
   padding: 1.5rem;
 }
 
 .city-title {
-  padding: 0.4rem;
+  width: 15rem;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.027);
+  border-radius: 1rem;
 }
 
 .temp-container {
@@ -43,7 +47,7 @@ $opaque-orange: transparentize($secondary-color, 0.5);
   width: 10rem;
   padding: 0.5rem;
   font-weight: bold;
-  background-color: $opaque-orange;
+  background-color: $opaque-black;
 }
 
 .climate-image {
