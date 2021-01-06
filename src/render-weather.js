@@ -80,9 +80,13 @@ class Render {
 
   renderclimate() {
     const p = document.createElement('p');
+    const body = document.getElementsByTagName('body')[0];
+    body.className = 'bg-day';
+    console.log(body);
     p.innerHTML = `Climate: ${this.data.climate}`;
-    p.className = 'climate-image';
+    p.className = 'temp-container';
     const image = document.createElement('img');
+    image.className = 'climate-image';
     image.src = `http://openweathermap.org/img/wn/${this.data.icon}@4x.png`;
     this.content.append(p);
     this.content.append(image);

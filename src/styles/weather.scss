@@ -14,14 +14,20 @@ $opaque-orange: transparentize($secondary-color, 0.5);
 }
 
 .type {
+  margin: 1rem;
   display: flex;
   justify-content: center;
 }
 
 .content {
+  margin: 2rem auto 0 auto;
+  max-width: 24rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 2rem;
+  background-color: #ffffffa6;
+  padding: 1.5rem;
 }
 
 .city-title {
@@ -39,3 +45,27 @@ $opaque-orange: transparentize($secondary-color, 0.5);
   font-weight: bold;
   background-color: $opaque-orange;
 }
+
+.climate-image {
+  margin-top: -7rem;
+  max-width: 30rem;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  position: absolute;
+  z-index: -1;
+}
+
+.bg-nigth {
+  height: 100vh;
+  background: #7a7a7a;
+  background: radial-gradient(circle, #7a7a7a 0%, #5f6d77 10%, #0c2129 100%);
+  background-repeat: space;
+}
+
+.bg-day {
+  height: 100vh;
+  background: #e4d9c5;
+  background: radial-gradient(circle, #e4d9c5 0%, #cbcbcb 39%, #3fc2f7 100%);
+  background-repeat: space;
+}
+  
