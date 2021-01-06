@@ -19,15 +19,6 @@ class Form {
 
   static weatherCall(cityInput) {
     const wheather = new ApiData(cityInput.value);
-    // Form.renderCall({
-    //   city: 'Cartagena',
-    //   climate: 'few clouds',
-    //   feels_like: '30 °',
-    //   humidity: 70,
-    //   icon: '02d',
-    //   temperature: '29 °',
-    //   type: 'C',
-    // });
     wheather.getApiData().then((value) => { Form.renderCall(value); });
   }
 
