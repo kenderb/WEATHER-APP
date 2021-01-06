@@ -1,0 +1,41 @@
+@import 'colors';
+$general-padding: 0.5rem;
+$border: 0.06rem solid $primary-color;
+$radius: 0.3rem;
+
+.form-container {
+  margin-top: 0.7rem;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+
+  form {
+    input {
+      border: $border;
+      border-radius: $radius 0 0 $radius;
+      padding: $general-padding;
+    }
+
+    button {
+      background-color: $primary-color;
+      border-radius: 0 $radius $radius 0;
+      color: white;
+      font-weight: bold;
+      border: $border;
+      padding: $general-padding;
+    }
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.form-error {
+  text-align: center;
+  margin: auto;
+  max-width: 10rem;
+  padding: 0.5rem;
+  background-color: $secondary-color;
+  color: white;
+}

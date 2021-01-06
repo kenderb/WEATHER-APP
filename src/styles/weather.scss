@@ -1,0 +1,74 @@
+
+@import 'colors';
+$genral-size: 2rem;
+$opaque-black: #000000a9;
+
+.degrees {
+  background-color: $opaque-black;
+  color: white;
+  font-size: $genral-size;
+  font-weight: bold;
+  border-radius: $genral-size;
+  border: none;
+  padding: 0.3rem 0.8rem;
+}
+
+.type {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  margin: 2rem auto 0 auto;
+  max-width: 24rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2rem;
+  background-color: #ffffff18;
+  padding: 1.5rem;
+}
+
+.city-title {
+  width: 15rem;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.027);
+  border-radius: 1rem;
+}
+
+.temp-container {
+  font-size: 1.1rem;
+  color: white;
+  border-radius: 0.5rem;
+  margin: 0.3rem;
+  text-align: center;
+  width: 10rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  background-color: $opaque-black;
+}
+
+.climate-image {
+  margin-top: -7rem;
+  max-width: 30rem;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  position: absolute;
+  z-index: -1;
+}
+
+.bg-nigth {
+  height: 100vh;
+  background: #7a7a7a;
+  background: radial-gradient(circle, #7a7a7a 0%, #5f6d77 10%, #0c2129 100%);
+  background-repeat: space;
+}
+
+.bg-day {
+  height: 100vh;
+  background: #e4d9c5;
+  background: radial-gradient(circle, #e4d9c5 0%, #cbcbcb 39%, #3fc2f7 100%);
+  background-repeat: space;
+}
