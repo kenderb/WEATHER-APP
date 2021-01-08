@@ -1,6 +1,6 @@
-# Restaurant Landing page
+# Weather app
 
->   I base this project on the practice for DOM manipulation with JavaScript, Webpack and working with APIS using OOP. This project is A app to see the climate in the city you want, you can toggle between C ° or F °.  Also you can see the current temperature, the feels like, humidity and more.
+>   I base this project on the practice for DOM manipulation with JavaScript, Webpack and working with APIS using OOP. This project is an app to see the climate in the city you want, you can toggle between C ° or F °.  Also you can see the current temperature, the feels like, humidity and more.
 
 ## Built With
 
